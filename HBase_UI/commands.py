@@ -220,54 +220,80 @@ def count(command):
     else:
         return "Invalid command."
 
-# Función para el comando alter
-@LimpiarInput
+
 def alter(command):
+    # Se limpia la entrada del comando
     if "alter " in command:
+        # Se verifica y separa el comando
         command = command.replace("alter ", "")
         command_split = command.split(",")
+        # Se obtienen los valores del comando
         if len(command_split) >= 3:
             table_name = scanWord(command_split[0])
             action = scanWord(command_split[1])
             column_family = scanWord(command_split[2])
+            # Se verifica que el archivo exista
             if checkFile(table_name):
+                # Se obtienen los datos del HFile
                 with open(f"./HFiles/{table_name}.json") as file:
                     data_table = json.load(file)
+                # Verifica si la tabla esta enable
                 if checkEnabled(data_table):
+                    # Si la accion que se realiza es delete
                     if action == "delete":
+                        # Verifica la columna en la tabla
                         if checkColumn(data_table, column_family):
+                            # Remueve la columna de la lista
                             data_table["Column Families"].remove(column_family)
+                            # Busca los valores de cada row id con esa columna
                             empty_rowid = []
                             for row_id in data_table["Rows"]:
                                 key_list = list(data_table["Rows"][row_id].keys())
                                 for i in key_list:
+                                    # Si encuentra la columna la elimina
                                     if column_family in i:
                                         del data_table["Rows"][row_id][i]
                                 if data_table["Rows"][row_id] == {}:
-                                    empty_rowid.append(row_id)
+                                        empty_rowid.append(row_id)
+
                             for row_id in empty_rowid:
                                 del data_table["Rows"][row_id]
+                            # Reescribe el archivo
                             with open(f"./HFiles/{table_name}.json", "w") as file:
                                 json.dump(data_table, file, indent=4)
                             return f"Column family '{column_family}' deleted from table '{table_name}'."
                         else:
                             return f"Column family '{column_family}' does not exist in table '{table_name}'."
+                    # Si la accion es update
                     elif action == "update":
                         new_column_family = scanWord(command_split[3])
                         if checkColumn(data_table, column_family):
                             if not checkColumn(data_table, new_column_family):
-                                data_table["Column Families"][data_table["Column Families"].index(column_family)] = new_column_family
+                                data_table["Column Families"][
+                                    data_table["Column Families"].index(column_family)
+                                ] = new_column_family
+                                # Busca los valores de cada row id con esa columna
                                 for row_id in data_table["Rows"]:
                                     key_list = list(data_table["Rows"][row_id].keys())
                                     for i in key_list:
+                                        # Si encuentra la columna la elimina
                                         if column_family in i:
                                             value = data_table["Rows"][row_id][i]
                                             del data_table["Rows"][row_id][i]
                                             column, qualifier = i.split(":")
-                                            new_column = new_column_family + ":" + qualifier
-                                            data_table["Rows"][row_id][new_column] = value
-                                    if data_table["Rows"] != {}:
-                                        data_table["Rows"][row_id] = dict(sorted(data_table["Rows"][row_id].items()))
+                                            new_column = (
+                                                new_column_family + ":" + qualifier
+                                            )
+                                            data_table["Rows"][row_id][
+                                                new_column
+                                            ] = value
+                                            # alter 'resiland','update','data','datos'
+                                if data_table["Rows"] != {}:
+                                    # Se ordenan los datos dentro de sus rows
+                                    data_table["Rows"][row_id] = dict(
+                                        sorted(data_table["Rows"][row_id].items())
+                                    )
+                                # Reescribe el archivo
                                 with open(f"./HFiles/{table_name}.json", "w") as file:
                                     json.dump(data_table, file, indent=4)
                                 return f"Column family '{column_family}' updated to '{new_column_family}' in table '{table_name}'."
@@ -279,12 +305,16 @@ def alter(command):
                         return f"Invalid action '{action}' for command 'alter'."
                 else:
                     return f"Table '{table_name}' is not enabled."
+
             else:
-                return f"Table '{table_name}' does not exist."
+                return f"Column updated in table '{table_name}'."
+
         else:
             return "Invalid command format for 'alter' command."
+
     else:
         return "Invalid command. 'alter' keyword not found."
+
 
 # Función para el comando describe
 @LimpiarInput
@@ -344,13 +374,18 @@ def delete(command):
                     data_table = json.load(file)
                 if checkRowId(data_table, row_id):
                     if column in data_table["Rows"][row_id]:
-                        if timestamp == data_table["Rows"][row_id][column]["timestamp"]:
+                        # Encontrar y eliminar el elemento con el timestamp especificado
+                        column_data_list = data_table["Rows"][row_id][column]
+                        data_table["Rows"][row_id][column] = [entry for entry in column_data_list if entry["timestamp"] != timestamp]
+                        # Eliminar la columna si no quedan versiones
+                        if not data_table["Rows"][row_id][column]:
                             del data_table["Rows"][row_id][column]
-                            if data_table["Rows"][row_id] == {}:
-                                del data_table["Rows"][row_id]
-                with open(f"./HFiles/{table_name}.json", "w") as file:
-                    json.dump(data_table, file, indent=4)
-                return f"Row '{row_id}' deleted from table '{table_name}'."
+                        # Eliminar la fila si no quedan columnas
+                        if not data_table["Rows"][row_id]:
+                            del data_table["Rows"][row_id]
+                        with open(f"./HFiles/{table_name}.json", "w") as file:
+                            json.dump(data_table, file, indent=4)
+                        return f"Version with timestamp '{timestamp}' deleted from column '{column}' in row '{row_id}' from table '{table_name}'."
     return "Invalid command"
 
 def deleteAll(command):

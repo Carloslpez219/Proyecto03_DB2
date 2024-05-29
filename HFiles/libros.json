@@ -1,0 +1,331 @@
+{
+    "table name": "libros",
+    "column families": ["informacion", "estado", "ubicacion"],
+    "is_enabled": true,
+    "rows": {
+        "libro1": {
+            "informacion:titulo": {
+                "value": "Cien Años de Soledad",
+                "timestamp": 1716957650
+            },
+            "informacion:autor": {
+                "value": "Gabriel Garcia Marquez",
+                "timestamp": 1716957651
+            },
+            "estado:disponibilidad": {
+                "value": "Disponible",
+                "timestamp": 1716957652
+            },
+            "ubicacion:estante": {
+                "value": "A5",
+                "timestamp": 1716957653
+            }
+        },
+        "libro2": {
+            "informacion:titulo": {
+                "value": "1984",
+                "timestamp": 1716957654
+            },
+            "informacion:autor": {
+                "value": "George Orwell",
+                "timestamp": 1716957655
+            },
+            "estado:disponibilidad": {
+                "value": "Prestado",
+                "timestamp": 1716957656
+            },
+            "ubicacion:estante": {
+                "value": "B2",
+                "timestamp": 1716957657
+            }
+        },
+        "libro3": {
+            "informacion:titulo": {
+                "value": "Don Quijote de la Mancha",
+                "timestamp": 1716957658
+            },
+            "informacion:autor": {
+                "value": "Miguel de Cervantes",
+                "timestamp": 1716957659
+            },
+            "estado:disponibilidad": {
+                "value": "Disponible",
+                "timestamp": 1716957660
+            },
+            "ubicacion:estante": {
+                "value": "C1",
+                "timestamp": 1716957661
+            }
+        },
+        "libro4": {
+            "informacion:titulo": {
+                "value": "Matar a un Ruiseñor",
+                "timestamp": 1716957662
+            },
+            "informacion:autor": {
+                "value": "Harper Lee",
+                "timestamp": 1716957663
+            },
+            "estado:disponibilidad": {
+                "value": "Disponible",
+                "timestamp": 1716957664
+            },
+            "ubicacion:estante": {
+                "value": "D4",
+                "timestamp": 1716957665
+            }
+        },
+        "libro5": {
+            "informacion:titulo": {
+                "value": "El Gran Gatsby",
+                "timestamp": 1716957666
+            },
+            "informacion:autor": {
+                "value": "F. Scott Fitzgerald",
+                "timestamp": 1716957667
+            },
+            "estado:disponibilidad": {
+                "value": "Prestado",
+                "timestamp": 1716957668
+            },
+            "ubicacion:estante": {
+                "value": "E3",
+                "timestamp": 1716957669
+            }
+        },
+        "libro6": {
+            "informacion:titulo": {
+                "value": "Crimen y Castigo",
+                "timestamp": 1716957670
+            },
+            "informacion:autor": {
+                "value": "Fyodor Dostoevsky",
+                "timestamp": 1716957671
+            },
+            "estado:disponibilidad": {
+                "value": "Disponible",
+                "timestamp": 1716957672
+            },
+            "ubicacion:estante": {
+                "value": "F5",
+                "timestamp": 1716957673
+            }
+        },
+        "libro7": {
+            "informacion:titulo": {
+                "value": "Orgullo y Prejuicio",
+                "timestamp": 1716957674
+            },
+            "informacion:autor": {
+                "value": "Jane Austen",
+                "timestamp": 1716957675
+            },
+            "estado:disponibilidad": {
+                "value": "Disponible",
+                "timestamp": 1716957676
+            },
+            "ubicacion:estante": {
+                "value": "G2",
+                "timestamp": 1716957677
+            }
+        },
+        "libro8": {
+            "informacion:titulo": {
+                "value": "El Señor de los Anillos",
+                "timestamp": 1716957678
+            },
+            "informacion:autor": {
+                "value": "J.R.R. Tolkien",
+                "timestamp": 1716957679
+            },
+            "estado:disponibilidad": {
+                "value": "Disponible",
+                "timestamp": 1716957680
+            },
+            "ubicacion:estante": {
+                "value": "H1",
+                "timestamp": 1716957681
+            }
+        },
+        "libro9": {
+            "informacion:titulo": {
+                "value": "El Hobbit",
+                "timestamp": 1716957682
+            },
+            "informacion:autor": {
+                "value": "J.R.R. Tolkien",
+                "timestamp": 1716957683
+            },
+            "estado:disponibilidad": {
+                "value": "Prestado",
+                "timestamp": 1716957684
+            },
+            "ubicacion:estante": {
+                "value": "H2",
+                "timestamp": 1716957685
+            }
+        },
+        "libro10": {
+            "informacion:titulo": {
+                "value": "Fahrenheit 451",
+                "timestamp": 1716957686
+            },
+            "informacion:autor": {
+                "value": "Ray Bradbury",
+                "timestamp": 1716957687
+            },
+            "estado:disponibilidad": {
+                "value": "Disponible",
+                "timestamp": 1716957688
+            },
+            "ubicacion:estante": {
+                "value": "I3",
+                "timestamp": 1716957689
+            }
+        },
+        "libro11": {
+            "informacion:titulo": {
+                "value": "Moby Dick",
+                "timestamp": 1716957690
+            },
+            "informacion:autor": {
+                "value": "Herman Melville",
+                "timestamp": 1716957691
+            },
+            "estado:disponibilidad": {
+                "value": "Disponible",
+                "timestamp": 1716957692
+            },
+            "ubicacion:estante": {
+                "value": "J2",
+                "timestamp": 1716957693
+            }
+        },
+        "libro12": {
+            "informacion:titulo": {
+                "value": "El Nombre de la Rosa",
+                "timestamp": 1716957694
+            },
+            "informacion:autor": {
+                "value": "Umberto Eco",
+                "timestamp": 1716957695
+            },
+            "estado:disponibilidad": {
+                "value": "Prestado",
+                "timestamp": 1716957696
+            },
+            "ubicacion:estante": {
+                "value": "K1",
+                "timestamp": 1716957697
+            }
+        },
+        "libro13": {
+            "informacion:titulo": {
+                "value": "La Sombra del Viento",
+                "timestamp": 1716957698
+            },
+            "informacion:autor": {
+                "value": "Carlos Ruiz Zafón",
+                "timestamp": 1716957699
+            },
+            "estado:disponibilidad": {
+                "value": "Disponible",
+                "timestamp": 1716957700
+            },
+            "ubicacion:estante": {
+                "value": "L2",
+                "timestamp": 1716957701
+            }
+        },
+        "libro14": {
+            "informacion:titulo": {
+                "value": "Los Pilares de la Tierra",
+                "timestamp": 1716957702
+            },
+            "informacion:autor": {
+                "value": "Ken Follett",
+                "timestamp": 1716957703
+            },
+            "estado:disponibilidad": {
+                "value": "Disponible",
+                "timestamp": 1716957704
+            },
+            "ubicacion:estante": {
+                "value": "M3",
+                "timestamp": 1716957705
+            }
+        },
+        "libro15": {
+            "informacion:titulo": {
+                "value": "Drácula",
+                "timestamp": 1716957706
+            },
+            "informacion:autor": {
+                "value": "Bram Stoker",
+                "timestamp": 1716957707
+            },
+            "estado:disponibilidad": {
+                "value": "Disponible",
+                "timestamp": 1716957708
+            },
+            "ubicacion:estante": {
+                "value": "N4",
+                "timestamp": 1716957709
+            }
+        },
+        "libro16": {
+            "informacion:titulo": {
+                "value": "El Retrato de Dorian Gray",
+                "timestamp": 1716957710
+            },
+            "informacion:autor": {
+                "value": "Oscar Wilde",
+                "timestamp": 1716957711
+            },
+            "estado:disponibilidad": {
+                "value": "Prestado",
+                "timestamp": 1716957712
+            },
+            "ubicacion:estante": {
+                "value": "O1",
+                "timestamp": 1716957713
+            }
+        },
+        "libro17": {
+            "informacion:titulo": {
+                "value": "Cumbres Borrascosas",
+                "timestamp": 1716957714
+            },
+            "informacion:autor": {
+                "value": "Emily Brontë",
+                "timestamp": 1716957715
+            },
+            "estado:disponibilidad": {
+                "value": "Disponible",
+                "timestamp": 1716957716
+            },
+            "ubicacion:estante": {
+                "value": "P2",
+                "timestamp": 1716957717
+            }
+        },
+        "libro18": {
+            "informacion:titulo": {
+                "value": "La Divina Comedia",
+                "timestamp": 1716957718
+            },
+            "informacion:autor": {
+                "value": "Dante Alighieri",
+                "timestamp": 1716957719
+            },
+            "estado:disponibilidad": {
+                "value": "Disponible",
+                "timestamp": 1716957720
+            },
+            "ubicacion:estante": {
+                "value": "Q3",
+                "timestamp": 1716957721
+            }
+        }
+    }
+}

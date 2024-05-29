@@ -1,0 +1,10 @@
+{
+    "Table Name": "peliculas",
+    "Column Families": [
+        "genero",
+        "estado",
+        "ubicacion"
+    ],
+    "Is_enabled": true,
+    "Rows": {}
+}
